@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reading Quest Adventure AR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Playfair+Display:wght@700&family=Lexend:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --font-scale: 1;
+      }
+      html {
+        font-size: calc(100% * var(--font-scale));
+      }
+      /* Default Font */
+      body {
+        font-family: 'Nunito', sans-serif;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Playfair Display', serif;
+      }
+      /* Accessible Font */
+      body.font-lexend {
+        font-family: 'Lexend', sans-serif;
+      }
+      body.font-lexend h1,
+      body.font-lexend h2, 
+      body.font-lexend h3, 
+      body.font-lexend h4, 
+      body.font-lexend h5, 
+      body.font-lexend h6 {
+        font-family: 'Lexend', sans-serif;
+        font-weight: 700;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.10.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react": "https://esm.sh/react@^19.1.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-amber-50 text-stone-800 dark:bg-stone-900 dark:text-stone-200 transition-colors duration-300">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
