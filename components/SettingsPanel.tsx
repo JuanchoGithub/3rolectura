@@ -19,8 +19,13 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onClose }) => {
     updateSettings({ font });
   };
 
+  // Map slider percent to scale: 100% = 0.8, 90% = 0.72, 110% = 0.88, etc.
+  const percentToScale = (percent: number) => 0.8 * (percent / 100);
+  const scaleToPercent = (scale: number) => Math.round((scale / 0.8) * 100);
+
   const handleSizeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    updateSettings({ fontSize: parseFloat(event.target.value) });
+    const percent = parseInt(event.target.value, 10);
+    updateSettings({ fontSize: percentToScale(percent) });
   }
 
   const RadioGroup: React.FC<{ label: string; children: React.ReactNode }> = ({ label, children }) => (
@@ -69,15 +74,15 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ isOpen, onClose }) => {
             
             <div>
                 <label htmlFor="fontSize" className="block text-sm font-medium text-stone-700 dark:text-stone-300 mb-2">
-                    Tamaño de Letra <span className="font-normal text-stone-500 dark:text-stone-400">({Math.round(settings.fontSize * 100)}%)</span>
+                    Tamaño de Letra <span className="font-normal text-stone-500 dark:text-stone-400">({scaleToPercent(settings.fontSize)}%)</span>
                 </label>
                 <input
                     id="fontSize"
                     type="range"
-                    min="0.8"
-                    max="1.5"
-                    step="0.1"
-                    value={settings.fontSize}
+                    min="70"
+                    max="130"
+                    step="5"
+                    value={scaleToPercent(settings.fontSize)}
                     onChange={handleSizeChange}
                     className="w-full h-2 bg-stone-200 dark:bg-stone-600 rounded-lg appearance-none cursor-pointer accent-emerald-500"
                 />

@@ -5,6 +5,7 @@ import ReadingStage from './components/ReadingStage';
 import ComprehensionStage from './components/ComprehensionStage';
 import VocabularyStage from './components/VocabularyStage';
 import ResultsScreen from './components/ResultsScreen';
+import StudentRecordsPage from './components/StudentRecordsPage';
 import { ICONS, ALL_QUESTS, ALL_QUESTS_LEVEL_2, ALL_QUESTS_LEVEL_3 } from './constants';
 import HomeButton from './components/HomeButton';
 import SettingsPanel from './components/SettingsPanel';
@@ -24,6 +25,7 @@ const App: React.FC = () => {
 
   const [justUnlockedL2, setJustUnlockedL2] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [showRecords, setShowRecords] = useState(false);
 
   useEffect(() => {
     try {
@@ -139,6 +141,7 @@ const App: React.FC = () => {
   const handleGoHome = () => {
       setGameState(GameState.NOT_STARTED);
       setError(null);
+      setShowRecords(false);
   };
   
   const showHomeButton = [GameState.READING, GameState.COMPREHENSION, GameState.VOCABULARY].includes(gameState);
@@ -174,24 +177,41 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen w-full flex items-center justify-center p-4">
       {showHomeButton && <HomeButton onClick={handleGoHome} />}
-      <div className="group fixed top-4 left-4 z-50">
-        <button
-          onClick={() => setIsSettingsOpen(true)}
-          className="bg-white p-3 rounded-full shadow-lg text-stone-600 hover:bg-amber-100 hover:text-stone-800 dark:bg-stone-700 dark:text-stone-300 dark:hover:bg-stone-600 dark:hover:text-stone-100 transition-all duration-300 transform hover:scale-110"
-          aria-label="Abrir ajustes"
-        >
-          {React.cloneElement(ICONS.SETTINGS, { className: 'w-7 h-7' })}
-        </button>
-        <div className="absolute top-1/2 -translate-y-1/2 left-full ml-2 w-max bg-stone-800 dark:bg-stone-900 text-white text-xs font-bold rounded-md px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-            Ajustes
+      <div className="flex flex-col gap-2 fixed top-4 left-4 z-50">
+        <div className="group relative">
+          <button
+            onClick={() => setIsSettingsOpen(true)}
+            className="bg-white p-3 rounded-full shadow-lg text-stone-600 hover:bg-amber-100 hover:text-stone-800 dark:bg-stone-700 dark:text-stone-300 dark:hover:bg-stone-600 dark:hover:text-stone-100 transition-all duration-300 transform hover:scale-110"
+            aria-label="Abrir ajustes"
+          >
+            {React.cloneElement(ICONS.SETTINGS, { className: 'w-7 h-7' })}
+          </button>
+          <div className="absolute top-1/2 -translate-y-1/2 left-full ml-2 w-max bg-stone-800 dark:bg-stone-900 text-white text-xs font-bold rounded-md px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+              Ajustes
+          </div>
+        </div>
+        <div className="group relative">
+          <button
+            onClick={() => setShowRecords(true)}
+            className="bg-white p-3 rounded-full shadow-lg text-stone-600 hover:bg-amber-100 hover:text-stone-800 dark:bg-stone-700 dark:text-stone-300 dark:hover:bg-stone-600 dark:hover:text-stone-100 transition-all duration-300 transform hover:scale-110"
+            aria-label="Ver perfil"
+          >
+            {React.cloneElement(ICONS.PROFILE, { className: 'w-7 h-7' })}
+          </button>
+          <div className="absolute top-1/2 -translate-y-1/2 left-full ml-2 w-max bg-stone-800 dark:bg-stone-900 text-white text-xs font-bold rounded-md px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+              Perfil
+          </div>
         </div>
       </div>
-
 
       <SettingsPanel isOpen={isSettingsOpen} onClose={() => setIsSettingsOpen(false)} />
 
       <main className="w-full">
-        {renderGameState()}
+        {showRecords ? (
+          <StudentRecordsPage onReturn={() => setShowRecords(false)} />
+        ) : (
+          renderGameState()
+        )}
       </main>
     </div>
   );

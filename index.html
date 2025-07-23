@@ -15,8 +15,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Playfair+Display:wght@700&family=Lexend:wght@400;700&display=swap" rel="stylesheet">
     <style>
       :root {
-        --font-scale: 1;
+        /* 80% is now the new 100% */
+        --font-scale: 0.8;
+        --font-scale-xs: 0.6;
+        --font-scale-sm: 0.7;
+        --font-scale-md: 0.8;
+        --font-scale-lg: 0.9;
+        --font-scale-xl: 1.0;
+        --font-scale-xxl: 1.1;
       }
+
+      /* Utility classes for font scaling */
+      .font-xs { --font-scale: var(--font-scale-xs); }
+      .font-sm { --font-scale: var(--font-scale-sm); }
+      .font-md { --font-scale: var(--font-scale-md); }
+      .font-lg { --font-scale: var(--font-scale-lg); }
+      .font-xl { --font-scale: var(--font-scale-xl); }
+      .font-xxl { --font-scale: var(--font-scale-xxl); }
       html {
         font-size: calc(100% * var(--font-scale));
       }
@@ -51,7 +66,6 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
 </head>
   <body class="bg-amber-50 text-stone-800 dark:bg-stone-900 dark:text-stone-200 transition-colors duration-300">
     <div id="root"></div>
