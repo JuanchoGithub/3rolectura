@@ -1,4 +1,3 @@
-
 export enum GameState {
   NOT_STARTED,
   READING,
@@ -6,6 +5,12 @@ export enum GameState {
   VOCABULARY,
   RESULTS,
   ERROR,
+}
+
+export enum QuestLevel {
+  BEGINNER = 'beginner',
+  INTERMEDIATE = 'intermediate',
+  ADVANCED = 'advanced',
 }
 
 export interface VocabularyWord {
@@ -24,6 +29,7 @@ export interface QuestData {
   passage: string;
   vocabulary: VocabularyWord[];
   comprehensionQuestions: ComprehensionQuestion[];
+  level: QuestLevel;
 }
 
 export interface PlayerStats {

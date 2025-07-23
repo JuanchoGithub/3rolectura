@@ -5,8 +5,10 @@ import ReadingStage from './components/ReadingStage';
 import ComprehensionStage from './components/ComprehensionStage';
 import VocabularyStage from './components/VocabularyStage';
 import ResultsScreen from './components/ResultsScreen';
-import StudentRecordsPage from './components/StudentRecordsPage';
-import { ICONS, ALL_QUESTS, ALL_QUESTS_LEVEL_2, ALL_QUESTS_LEVEL_3 } from './constants';
+import { ICONS } from './constants';
+import { BEGINNER_QUESTS } from './constants/stories/beginner';
+import { INTERMEDIATE_QUESTS } from './constants/stories/intermediate';
+import { ADVANCED_QUESTS } from './constants/stories/advanced';
 import HomeButton from './components/HomeButton';
 import SettingsPanel from './components/SettingsPanel';
 
@@ -25,7 +27,6 @@ const App: React.FC = () => {
 
   const [justUnlockedL2, setJustUnlockedL2] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-  const [showRecords, setShowRecords] = useState(false);
 
   useEffect(() => {
     try {
@@ -39,30 +40,27 @@ const App: React.FC = () => {
   }, []);
 
   const startNewQuest = useCallback((level: number) => {
-    let quests;
+    let quests: QuestData[];
     switch(level) {
         case 1:
-            quests = ALL_QUESTS;
+            quests = BEGINNER_QUESTS;
             break;
         case 2:
-            quests = ALL_QUESTS_LEVEL_2;
+            quests = INTERMEDIATE_QUESTS;
             break;
         case 3:
-            quests = ALL_QUESTS_LEVEL_3;
+            quests = ADVANCED_QUESTS;
             break;
         default:
-            quests = ALL_QUESTS;
+            quests = BEGINNER_QUESTS;
     }
-    
     if (quests.length === 0) {
       setError(`La biblioteca de aventuras para el Nivel ${level} está vacía.`);
       setGameState(GameState.ERROR);
       return;
     }
-    
     const randomIndex = Math.floor(Math.random() * quests.length);
     const selectedQuest = quests[randomIndex];
-    
     setDifficulty(level);
     setQuestData(selectedQuest);
     setPlayerStats(null);
@@ -93,13 +91,13 @@ const App: React.FC = () => {
     if (!questData || !playerStats) return;
 
     let correctCount = 0;
-    questData.comprehensionQuestions.forEach((q, index) => {
+    questData.comprehensionQuestions.forEach((q: { correctAnswerIndex: number }, index: number) => {
       if (answers[index] === q.correctAnswerIndex) {
         correctCount++;
       }
     });
     
-    setPlayerStats(prevStats => ({
+    setPlayerStats((prevStats: PlayerStats | null) => ({
         ...prevStats!,
         comprehensionCorrect: correctCount,
         totalScore: prevStats!.totalScore + correctCount * 150 + prevStats!.wpm,
@@ -112,7 +110,7 @@ const App: React.FC = () => {
     if (!questData || !playerStats) return;
 
     const correctVocabularyCount = matches.length;
-    const finalStats = {
+    const finalStats: PlayerStats = {
       ...playerStats,
       vocabularyCorrect: correctVocabularyCount,
       totalScore: playerStats.totalScore + correctVocabularyCount * 50,
@@ -141,7 +139,6 @@ const App: React.FC = () => {
   const handleGoHome = () => {
       setGameState(GameState.NOT_STARTED);
       setError(null);
-      setShowRecords(false);
   };
   
   const showHomeButton = [GameState.READING, GameState.COMPREHENSION, GameState.VOCABULARY].includes(gameState);
@@ -177,41 +174,24 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen w-full flex items-center justify-center p-4">
       {showHomeButton && <HomeButton onClick={handleGoHome} />}
-      <div className="flex flex-col gap-2 fixed top-4 left-4 z-50">
-        <div className="group relative">
-          <button
-            onClick={() => setIsSettingsOpen(true)}
-            className="bg-white p-3 rounded-full shadow-lg text-stone-600 hover:bg-amber-100 hover:text-stone-800 dark:bg-stone-700 dark:text-stone-300 dark:hover:bg-stone-600 dark:hover:text-stone-100 transition-all duration-300 transform hover:scale-110"
-            aria-label="Abrir ajustes"
-          >
-            {React.cloneElement(ICONS.SETTINGS, { className: 'w-7 h-7' })}
-          </button>
-          <div className="absolute top-1/2 -translate-y-1/2 left-full ml-2 w-max bg-stone-800 dark:bg-stone-900 text-white text-xs font-bold rounded-md px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-              Ajustes
-          </div>
-        </div>
-        <div className="group relative">
-          <button
-            onClick={() => setShowRecords(true)}
-            className="bg-white p-3 rounded-full shadow-lg text-stone-600 hover:bg-amber-100 hover:text-stone-800 dark:bg-stone-700 dark:text-stone-300 dark:hover:bg-stone-600 dark:hover:text-stone-100 transition-all duration-300 transform hover:scale-110"
-            aria-label="Ver perfil"
-          >
-            {React.cloneElement(ICONS.PROFILE, { className: 'w-7 h-7' })}
-          </button>
-          <div className="absolute top-1/2 -translate-y-1/2 left-full ml-2 w-max bg-stone-800 dark:bg-stone-900 text-white text-xs font-bold rounded-md px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-              Perfil
-          </div>
+      <div className="group fixed top-4 left-4 z-50">
+        <button
+          onClick={() => setIsSettingsOpen(true)}
+          className="bg-white p-3 rounded-full shadow-lg text-stone-600 hover:bg-amber-100 hover:text-stone-800 dark:bg-stone-700 dark:text-stone-300 dark:hover:bg-stone-600 dark:hover:text-stone-100 transition-all duration-300 transform hover:scale-110"
+          aria-label="Abrir ajustes"
+        >
+          {React.cloneElement(ICONS.SETTINGS, { className: 'w-7 h-7' })}
+        </button>
+        <div className="absolute top-1/2 -translate-y-1/2 left-full ml-2 w-max bg-stone-800 dark:bg-stone-900 text-white text-xs font-bold rounded-md px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+            Ajustes
         </div>
       </div>
+
 
       <SettingsPanel isOpen={isSettingsOpen} onClose={() => setIsSettingsOpen(false)} />
 
       <main className="w-full">
-        {showRecords ? (
-          <StudentRecordsPage onReturn={() => setShowRecords(false)} />
-        ) : (
-          renderGameState()
-        )}
+        {renderGameState()}
       </main>
     </div>
   );
