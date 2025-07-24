@@ -19,7 +19,9 @@ const VocabularyStage: React.FC<VocabularyStageProps> = ({ vocabulary, onComplet
   const remainingWords = vocabulary.filter(v => !matches.some(m => m.word === v.word));
   const remainingDefinitions = shuffledDefinitions.filter(d => !matches.some(m => m.definition === d));
 
+  const [isProcessing, setIsProcessing] = useState(false);
   const handleSelect = (item: string, type: 'word' | 'definition') => {
+    if (isProcessing) return;
     let newSelectedWord = type === 'word' ? item : selectedWord;
     let newSelectedDefinition = type === 'definition' ? item : selectedDefinition;
 
@@ -27,12 +29,16 @@ const VocabularyStage: React.FC<VocabularyStageProps> = ({ vocabulary, onComplet
     if (type === 'definition') setSelectedDefinition(item);
 
     if (newSelectedWord && newSelectedDefinition) {
-      const correctDefinition = vocabulary.find(v => v.word === newSelectedWord)?.definition;
-      if (correctDefinition === newSelectedDefinition) {
-        setMatches([...matches, { word: newSelectedWord, definition: newSelectedDefinition }]);
-      }
-      setSelectedWord(null);
-      setSelectedDefinition(null);
+      setIsProcessing(true);
+      setTimeout(() => {
+        const correctDefinition = vocabulary.find(v => v.word === newSelectedWord)?.definition;
+        if (correctDefinition === newSelectedDefinition) {
+          setMatches(prev => [...prev, { word: newSelectedWord, definition: newSelectedDefinition }]);
+        }
+        setSelectedWord(null);
+        setSelectedDefinition(null);
+        setIsProcessing(false);
+      }, 350); // short delay for feedback
     }
   };
   
@@ -47,37 +53,54 @@ const VocabularyStage: React.FC<VocabularyStageProps> = ({ vocabulary, onComplet
         {/* Words Column */}
         <div className="space-y-4">
           <h3 className="text-xl font-semibold text-center text-stone-600 dark:text-stone-300">Palabras</h3>
-          {remainingWords.map(({ word }) => (
-            <button
-              key={word}
-              onClick={() => handleSelect(word, 'word')}
-              className={`w-full p-4 rounded-lg transition-all duration-200 border-2 ${
-                selectedWord === word 
-                ? 'bg-blue-500 border-blue-600 text-white font-bold shadow-md dark:bg-blue-400 dark:border-blue-500 dark:text-stone-900' 
-                : 'bg-white border-stone-200 hover:bg-amber-50 hover:border-amber-400 dark:bg-stone-900 dark:border-stone-600 dark:text-stone-300 dark:hover:bg-stone-600 dark:hover:border-amber-500'
-              }`}
-            >
-              {word}
-            </button>
-          ))}
+          {remainingWords.map(({ word }) => {
+            const isMatched = matches.some(m => m.word === word);
+            return (
+              <button
+                key={word}
+                onClick={() => handleSelect(word, 'word')}
+                disabled={isMatched || isProcessing || (selectedWord !== null && selectedWord !== word)}
+                className={`w-full p-4 rounded-lg transition-all duration-200 border-2 ${
+                  isMatched
+                    ? 'bg-emerald-200 border-emerald-400 text-emerald-700 dark:bg-emerald-900 dark:border-emerald-700 dark:text-emerald-200 opacity-60 cursor-not-allowed'
+                    : selectedWord === word
+                      ? 'bg-blue-500 border-blue-600 text-white font-bold shadow-md dark:bg-blue-400 dark:border-blue-500 dark:text-stone-900'
+                      : 'bg-white border-stone-200 hover:bg-amber-50 hover:border-amber-400 dark:bg-stone-900 dark:border-stone-600 dark:text-stone-300 dark:hover:bg-stone-600 dark:hover:border-amber-500'
+                } ${isMatched || (selectedWord !== null && selectedWord !== word) || isProcessing ? 'opacity-60 cursor-not-allowed' : ''}`}
+              >
+                {word}
+              </button>
+            );
+          })}
         </div>
 
         {/* Definitions Column */}
         <div className="space-y-4">
           <h3 className="text-xl font-semibold text-center text-stone-600 dark:text-stone-300">Definiciones</h3>
-          {remainingDefinitions.map((definition) => (
-             <button
-              key={definition}
-              onClick={() => handleSelect(definition, 'definition')}
-              className={`w-full p-4 rounded-lg text-left transition-all duration-200 border-2 ${
-                selectedDefinition === definition 
-                ? 'bg-blue-500 border-blue-600 text-white font-bold shadow-md dark:bg-blue-400 dark:border-blue-500 dark:text-stone-900' 
-                : 'bg-white border-stone-200 hover:bg-amber-50 hover:border-amber-400 dark:bg-stone-900 dark:border-stone-600 dark:text-stone-300 dark:hover:bg-stone-600 dark:hover:border-amber-500'
-              }`}
-            >
-              {definition}
-            </button>
-          ))}
+          {remainingDefinitions.map((definition) => {
+            const isMatched = matches.some(m => m.definition === definition);
+            const isDisabled =
+              isMatched ||
+              isProcessing ||
+              selectedWord === null ||
+              (selectedDefinition !== null && selectedDefinition !== definition);
+            return (
+              <button
+                key={definition}
+                onClick={() => handleSelect(definition, 'definition')}
+                disabled={isDisabled}
+                className={`w-full p-4 rounded-lg text-left transition-all duration-200 border-2 ${
+                  isMatched
+                    ? 'bg-emerald-200 border-emerald-400 text-emerald-700 dark:bg-emerald-900 dark:border-emerald-700 dark:text-emerald-200 opacity-60 cursor-not-allowed'
+                    : selectedDefinition === definition
+                      ? 'bg-blue-500 border-blue-600 text-white font-bold shadow-md dark:bg-blue-400 dark:border-blue-500 dark:text-stone-900'
+                      : 'bg-white border-stone-200 hover:bg-amber-50 hover:border-amber-400 dark:bg-stone-900 dark:border-stone-600 dark:text-stone-300 dark:hover:bg-stone-600 dark:hover:border-amber-500'
+                } ${isDisabled ? 'opacity-60 cursor-not-allowed' : ''}`}
+              >
+                {definition}
+              </button>
+            );
+          })}
         </div>
       </div>
       

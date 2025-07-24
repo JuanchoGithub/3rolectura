@@ -15,6 +15,18 @@ import SettingsPanel from './components/SettingsPanel';
 const LOCAL_STORAGE_KEY_L1 = 'readingQuestPerfectScoresL1';
 
 
+// Cookie helpers
+function setCookie(name: string, value: string, days = 365) {
+  const expires = new Date(Date.now() + days * 864e5).toUTCString();
+  document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
+}
+function getCookie(name: string): string | null {
+  return document.cookie.split('; ').reduce((r, v) => {
+    const parts = v.split('=');
+    return parts[0] === name ? decodeURIComponent(parts[1]) : r;
+  }, null as string | null);
+}
+
 const App: React.FC = () => {
   const [gameState, setGameState] = useState<GameState>(GameState.NOT_STARTED);
   const [questData, setQuestData] = useState<QuestData | null>(null);
@@ -26,6 +38,21 @@ const App: React.FC = () => {
   const [perfectScoresL1, setPerfectScoresL1] = useState(0);
 
   const [justUnlockedL2, setJustUnlockedL2] = useState(false);
+  // Track completed stories per level
+  const [completedStories, setCompletedStories] = useState<{ [level: number]: number[] }>({});
+  // Load completed stories from cookies on mount
+  useEffect(() => {
+    const obj: { [level: number]: number[] } = {};
+    [1,2,3].forEach(level => {
+      const val = getCookie('completedStoriesL' + level);
+      if (val) {
+        try {
+          obj[level] = JSON.parse(val);
+        } catch {}
+      }
+    });
+    setCompletedStories(obj);
+  }, []);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   useEffect(() => {
@@ -39,35 +66,50 @@ const App: React.FC = () => {
     }
   }, []);
 
-  const startNewQuest = useCallback((level: number) => {
-    let quests: QuestData[];
-    switch(level) {
-        case 1:
-            quests = BEGINNER_QUESTS;
-            break;
-        case 2:
-            quests = INTERMEDIATE_QUESTS;
-            break;
-        case 3:
-            quests = ADVANCED_QUESTS;
-            break;
-        default:
-            quests = BEGINNER_QUESTS;
+
+const startNewQuest = useCallback((level: number, storyIndex?: number) => {
+  let quests: QuestData[];
+  switch(level) {
+      case 1:
+          quests = BEGINNER_QUESTS;
+          break;
+      case 2:
+          quests = INTERMEDIATE_QUESTS;
+          break;
+      case 3:
+          quests = ADVANCED_QUESTS;
+          break;
+      default:
+          quests = BEGINNER_QUESTS;
+  }
+  if (quests.length === 0) {
+    setError(`La biblioteca de aventuras para el Nivel ${level} está vacía.`);
+    setGameState(GameState.ERROR);
+    return;
+  }
+  let selectedQuest: QuestData;
+  if (typeof storyIndex === 'number' && storyIndex >= 0 && storyIndex < quests.length) {
+    selectedQuest = quests[storyIndex];
+  } else {
+    // Only pick from uncompleted stories
+    const completed = completedStories[level] || [];
+    const uncompletedIndices = quests.map((_, idx) => idx).filter(idx => !completed.includes(idx));
+    let pickIdx: number;
+    if (uncompletedIndices.length > 0) {
+      pickIdx = uncompletedIndices[Math.floor(Math.random() * uncompletedIndices.length)];
+    } else {
+      // fallback: all completed, pick any
+      pickIdx = Math.floor(Math.random() * quests.length);
     }
-    if (quests.length === 0) {
-      setError(`La biblioteca de aventuras para el Nivel ${level} está vacía.`);
-      setGameState(GameState.ERROR);
-      return;
-    }
-    const randomIndex = Math.floor(Math.random() * quests.length);
-    const selectedQuest = quests[randomIndex];
-    setDifficulty(level);
-    setQuestData(selectedQuest);
-    setPlayerStats(null);
-    setJustUnlockedL2(false);
-    setGameState(GameState.READING);
-    setReadingStartTime(Date.now());
-  }, []);
+    selectedQuest = quests[pickIdx];
+  }
+  setDifficulty(level);
+  setQuestData(selectedQuest);
+  setPlayerStats(null);
+  setJustUnlockedL2(false);
+  setGameState(GameState.READING);
+  setReadingStartTime(Date.now());
+}, [completedStories]);
 
   const handleFinishedReading = () => {
     if (!readingStartTime || !questData) return;
@@ -117,6 +159,24 @@ const App: React.FC = () => {
     };
     setPlayerStats(finalStats);
 
+    // Mark story as completed in cookies
+    if (questData && typeof questData.title === 'string') {
+      // Find story index in its level
+      let level = difficulty;
+      let quests: QuestData[] = [];
+      if (level === 1) quests = BEGINNER_QUESTS;
+      if (level === 2) quests = INTERMEDIATE_QUESTS;
+      if (level === 3) quests = ADVANCED_QUESTS;
+      const idx = quests.findIndex(q => q.title === questData.title);
+      if (idx !== -1) {
+        setCompletedStories(prev => {
+          const arr = prev[level] ? Array.from(new Set([...prev[level], idx])) : [idx];
+          setCookie('completedStoriesL' + level, JSON.stringify(arr));
+          return { ...prev, [level]: arr };
+        });
+      }
+    }
+
     const isPerfect = finalStats.comprehensionCorrect === finalStats.comprehensionTotal && finalStats.vocabularyCorrect === finalStats.vocabularyTotal;
 
     if (isPerfect) {
@@ -146,7 +206,7 @@ const App: React.FC = () => {
   const renderGameState = () => {
     switch (gameState) {
       case GameState.NOT_STARTED:
-        return <StartScreen onStart={startNewQuest} />;
+        return <StartScreen onStart={startNewQuest} completedStories={completedStories} />;
       case GameState.READING:
         return questData && <ReadingStage questData={questData} onFinishedReading={handleFinishedReading} />;
       case GameState.COMPREHENSION:
