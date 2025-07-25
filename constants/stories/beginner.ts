@@ -260,14 +260,14 @@ export const BEGINNER_QUESTS: QuestData[] = [
         correctAnswerIndex: 1
       },
       {
-        questionText: "La mayoría de las manos pintadas son...",
-        options: ["Manos derechas", "Manos de niños", "Manos izquierdas", "Manos con seis dedos"],
+        questionText: "¿Qué le pasó a Nube-i, la nube rápida?",
+        options: ["Ganó la carrera", "Se convirtió en lluvia", "El viento helado la deshizo", "Se detuvo a descansar"],
         correctAnswerIndex: 2
       },
       {
-        questionText: "Las manos en la cueva son como un...",
-        options: ["Mapa del tesoro", "Manual de caza", "Calendario antiguo", "Mensaje que dice 'yo estuve aquí'"],
-        correctAnswerIndex: 3
+        questionText: "¿Cuál fue la lección que la montaña enseñó?",
+        options: ["Que ser rápido es lo más importante", "Que no se debe competir", "Que la paciencia y la ayuda de otros son importantes para llegar alto", "Que las nubes no deben acercarse a las montañas"],
+        correctAnswerIndex: 2
       }
     ]
   },
@@ -348,6 +348,276 @@ export const BEGINNER_QUESTS: QuestData[] = [
       {
         questionText: "El descubrimiento de los fósiles es como un...",
         options: ["Problema matemático", "Viaje en el tiempo", "Experimento de química", "Juego de azar"],
+        correctAnswerIndex: 1
+      }
+    ]
+  },
+  {
+    title: "La Noche de las Pizzerías",
+    level: QuestLevel.BEGINNER,
+    passage: "En Buenos Aires, hay una noche especial llamada 'La Noche de las Pizzerías'. Esa noche, miles de personas recorren la ciudad para probar las mejores pizzas. No es una competencia oficial, pero todos tienen su pizzería favorita. Una familia, los García, decidieron unirse a la tradición. Visitaron pizzerías famosas en la Avenida Corrientes. Comieron pizza 'al molde', alta y esponjosa, y pizza 'a la piedra', fina y crocante. Compartieron porciones de fugazzeta con mucho queso y cebolla. No eligieron una ganadora, pero disfrutaron de la deliciosa comida y la alegría de la gente, sintiendo el corazón de la ciudad.",
+    vocabulary: [
+      { word: "Pizzería", definition: "Un restaurante que se especializa en hacer y vender pizzas." },
+      { word: "Porción", definition: "Una parte de algo más grande, en este caso, una rebanada de pizza." },
+      { word: "Fugazzeta", definition: "Una pizza argentina muy popular que lleva mucha cebolla y queso." }
+    ],
+    comprehensionQuestions: [
+      {
+        questionText: "¿Qué se celebra en 'La Noche de las Pizzerías'?",
+        options: ["Se regalan pizzas", "La gente recorre la ciudad probando pizzas", "Se cocinan pizzas gigantes", "Los niños aprenden a hacer pizza"],
+        correctAnswerIndex: 1
+      },
+      {
+        questionText: "¿Qué dos tipos de pizza probó la familia García?",
+        options: ["Pizza con ananá y pizza con champiñones", "Pizza al molde y pizza a la piedra", "Pizza cuadrada y pizza triangular", "Pizza dulce y pizza salada"],
+        correctAnswerIndex: 1
+      },
+      {
+        questionText: "¿Qué sintieron los García al final de la noche?",
+        options: ["Que habían comido demasiado", "Que su pizzería era la mejor", "El delicioso sabor y la alegría de la gente", "Que preferían las hamburguesas"],
+        correctAnswerIndex: 2
+      }
+    ]
+  },
+  {
+    title: "El Secreto del Dulce de Leche",
+    level: QuestLevel.BEGINNER,
+    passage: "La abuela de Martina guardaba un secreto delicioso en su cocina: la receta del mejor dulce de leche. Un día, Martina le pidió que se la enseñara. 'El secreto no está solo en los ingredientes, Martina', dijo la abuela. 'Está en la paciencia'. Juntas, pusieron leche y azúcar en una olla grande. Lo revolvieron lentamente, durante mucho, mucho tiempo. La mezcla cambió de color, de blanco a un marrón brillante y espeso. El aroma dulce llenó toda la casa. Martina aprendió que, como las mejores cosas de la vida, el dulce de leche necesitaba tiempo y cariño para ser perfecto. Y el primer panqueque que rellenó con ese dulce de leche fue el más rico que había probado.",
+    vocabulary: [
+      { word: "Dulce de leche", definition: "Un dulce tradicional hecho con leche y azúcar, muy popular en Argentina." },
+      { word: "Receta", definition: "Instrucciones para preparar un plato de comida." },
+      { word: "Panqueque", definition: "Una especie de crepe, muy fino, que se come con rellenos dulces o salados." }
+    ],
+    comprehensionQuestions: [
+      {
+        questionText: "¿Cuál era el secreto de la abuela para el dulce de leche?",
+        options: ["Un ingrediente mágico", "Revolver muy rápido", "La paciencia", "Usar mucha azúcar"],
+        correctAnswerIndex: 2
+      },
+      {
+        questionText: "¿Qué ingredientes usaron?",
+        options: ["Leche y miel", "Chocolate y azúcar", "Leche y azúcar", "Crema y caramelo"],
+        correctAnswerIndex: 2
+      },
+      {
+        questionText: "¿Con qué comió Martina el dulce de leche?",
+        options: ["Con una cuchara", "Con pan", "Con galletitas", "Con un panqueque"],
+        correctAnswerIndex: 3
+      }
+    ]
+  },
+  {
+    title: "Un Amigo Inesperado en las Cataratas del Iguazú",
+    level: QuestLevel.BEGINNER,
+    passage: "En medio de la selva misionera, donde el agua de las Cataratas del Iguazú ruge con fuerza, vive un animal muy curioso: el coatí. Son simpáticos, con narices largas y colas anilladas. Un niño llamado Mateo estaba visitando las cataratas con sus padres. Se sentó a comer una galleta en un banco y, de repente, un coatí se le acercó, mirándolo con sus ojitos brillantes. Mateo, sorprendido, compartió un pedacito de su galleta. El coatí la tomó suavemente y se fue. Mateo aprendió que en la naturaleza, si uno es respetuoso, puede hacer amigos inesperados y que compartir, aunque sea un poquito, te hace sentir bien.",
+    vocabulary: [
+      { word: "Cataratas del Iguazú", definition: "Un conjunto de cataratas famosas en la frontera entre Argentina y Brasil." },
+      { word: "Coatí", definition: "Un mamífero pequeño, pariente del mapache, que vive en las selvas de América." },
+      { word: "Ruge", definition: "Hacer un ruido muy fuerte, como el de un león o, en este caso, el agua de las cataratas." }
+    ],
+    comprehensionQuestions: [
+      {
+        questionText: "¿Dónde vive el coatí de esta historia?",
+        options: ["En la ciudad", "En las montañas", "En la selva, cerca de las Cataratas del Iguazú", "En el desierto"],
+        correctAnswerIndex: 2
+      },
+      {
+        questionText: "¿Qué estaba haciendo Mateo cuando se le acercó el coatí?",
+        options: ["Durmiendo", "Jugando a la pelota", "Sacando fotos", "Comiendo una galleta"],
+        correctAnswerIndex: 3
+      },
+      {
+        questionText: "¿Qué hizo Mateo con el coatí?",
+        options: ["Lo asustó", "Le tiró agua", "Compartió su galleta", "Lo ignoró"],
+        correctAnswerIndex: 2
+      }
+    ]
+  },
+  {
+    title: "La Leyenda de la Flor del Ceibo",
+    level: QuestLevel.BEGINNER,
+    passage: "La Flor Nacional de Argentina, el ceibo, tiene una leyenda muy valiente. Cuenta la historia de Anahí, una joven guaraní que amaba cantar. Cuando los conquistadores llegaron a sus tierras, la capturaron. Anahí logró escapar una noche, pero la encontraron. Como castigo, la ataron a un árbol para quemarla. Cuando el fuego comenzó, Anahí empezó a cantar una canción a su selva. A la mañana siguiente, los soldados no encontraron a Anahí. En su lugar, el árbol estaba cubierto de hermosas flores rojas, como llamas de fuego y con la dulzura de su voz. Así nació la flor del ceibo, un símbolo de valentía y amor por la tierra.",
+    vocabulary: [
+      { word: "Ceibo", definition: "Árbol cuya flor roja es la Flor Nacional de Argentina." },
+      { word: "Guaraní", definition: "Pueblo indígena que habitaba la región noreste de Argentina y Paraguay." },
+      { word: "Conquistadores", definition: "Soldados españoles que llegaron a América en los siglos XV y XVI." }
+    ],
+    comprehensionQuestions: [
+      {
+        questionText: "¿Quién era Anahí?",
+        options: ["Una princesa española", "Una joven guaraní que le gustaba cantar", "Una diosa de la luna", "Una guerrera famosa"],
+        correctAnswerIndex: 1
+      },
+      {
+        questionText: "¿Qué le pasó a Anahí cuando la capturaron y la ataron a un árbol?",
+        options: ["Lloró toda la noche", "Pidió ayuda a los dioses", "Empezó a cantar", "Se quedó en silencio"],
+        correctAnswerIndex: 2
+      },
+      {
+        questionText: "La flor del ceibo simboliza...",
+        options: ["La tristeza y la derrota", "La riqueza y el oro", "La valentía y el amor por la tierra", "La paz y la tranquilidad"],
+        correctAnswerIndex: 2
+      }
+    ]
+  },
+  {
+    title: "El Baile del Tango",
+    level: QuestLevel.BEGINNER,
+    passage: "El tango no es solo un baile, es una conversación sin palabras. Nació en los barrios de Buenos Aires, donde inmigrantes de muchos países se mezclaban. Con la guitarra, el violín y el bandoneón, contaban sus historias de nostalgia, amor y esperanza. Un niño, Tadeo, veía a sus abuelos bailar. No saltaban ni corrían, caminaban abrazados, con elegancia. Un paso adelante, un paso al costado, una pausa. 'El secreto del tango, Tadeo', le dijo su abuelo, 'es escuchar la música con el corazón y caminar juntos'. Tadeo entendió que el tango era más que pasos, era sentir la música y compartir ese sentimiento con otra persona.",
+    vocabulary: [
+      { word: "Tango", definition: "Un estilo musical y de danza, característico de la región del Río de la Plata." },
+      { word: "Bandoneón", definition: "Un instrumento musical parecido a un acordeón, esencial en el tango." },
+      { word: "Inmigrantes", definition: "Personas que llegan a un país diferente del suyo para vivir en él." }
+    ],
+    comprehensionQuestions: [
+      {
+        questionText: "¿Dónde nació el tango?",
+        options: ["En el campo", "En los salones de la alta sociedad", "En los barrios de Buenos Aires", "En España"],
+        correctAnswerIndex: 2
+      },
+      {
+        questionText: "¿Qué instrumento es esencial en la música de tango?",
+        options: ["La flauta", "El piano", "La batería", "El bandoneón"],
+        correctAnswerIndex: 3
+      },
+      {
+        questionText: "Según el abuelo, ¿cuál es el secreto del tango?",
+        options: ["Aprender muchos pasos difíciles", "Vestirse de forma elegante", "Escuchar la música con el corazón y caminar juntos", "Bailar muy rápido"],
+        correctAnswerIndex: 2
+      }
+    ]
+  },
+  {
+    title: "El Glaciar Perito Moreno: Un Río de Hielo",
+    level: QuestLevel.BEGINNER,
+    passage: "En la Patagonia, hay un gigante de hielo que se mueve. Es el Glaciar Perito Moreno. No es un río de agua, sino de hielo, que avanza muy lentamente desde las montañas hasta el Lago Argentino. A veces, el frente del glaciar forma un puente de hielo sobre el lago. La gente espera en silencio, hasta que, con un ruido atronador, el puente se rompe y caen enormes bloques de hielo al agua. Una niña, llamada Lía, vio este espectáculo. No sintió miedo, sino asombro por la fuerza de la naturaleza. Comprendió que el mundo está lleno de maravillas que son lentas, poderosas y muy, muy antiguas.",
+    vocabulary: [
+      { word: "Glaciar", definition: "Una gran masa de hielo que se forma en las partes altas de las montañas y se desliza lentamente hacia abajo." },
+      { word: "Patagonia", definition: "Una región geográfica en el extremo sur de América, compartida por Argentina y Chile." },
+      { word: "Atronador", definition: "Que suena como un trueno, muy fuerte." }
+    ],
+    comprehensionQuestions: [
+      {
+        questionText: "¿Qué es el Glaciar Perito Moreno?",
+        options: ["Una montaña de nieve", "Un lago congelado", "Un río de hielo que se mueve", "Una cascada de agua helada"],
+        correctAnswerIndex: 2
+      },
+      {
+        questionText: "¿Qué pasa a veces con el frente del glaciar?",
+        options: ["Se derrite por completo", "Cambia de color", "Forma un puente de hielo que luego se rompe", "Se detiene para siempre"],
+        correctAnswerIndex: 2
+      },
+      {
+        questionText: "¿Qué sintió Lía al ver la ruptura del glaciar?",
+        options: ["Tristeza", "Miedo", "Indiferencia", "Asombro"],
+        correctAnswerIndex: 3
+      }
+    ]
+  },
+  {
+    title: "El Superclásico: Más que un Partido de Fútbol",
+    level: QuestLevel.BEGINNER,
+    passage: "Cuando juegan Boca Juniors y River Plate, Argentina se detiene. Se llama el 'Superclásico' y es uno de los partidos de fútbol más famosos del mundo. Los colores azul y amarillo de Boca y el blanco y rojo de River llenan las calles. En la familia de Lucas, hay una división divertida. Su papá es de River y su mamá es de Boca. Durante el partido, cantan las canciones de sus equipos y se ríen. Aunque cada uno quiere que su equipo gane, al final del día, se abrazan. Lucas aprende que, aunque en el fútbol sean rivales, en la familia y en la vida, el amor y el respeto son siempre lo más importante.",
+    vocabulary: [
+      { word: "Superclásico", definition: "El partido de fútbol entre los dos equipos más populares de Argentina: Boca Juniors y River Plate." },
+      { word: "Rival", definition: "Una persona o equipo que compite contra otro." },
+      { word: "Equipo", definition: "Un grupo de personas que juegan juntas en un deporte." }
+    ],
+    comprehensionQuestions: [
+      {
+        questionText: "¿Qué equipos juegan en el Superclásico?",
+        options: ["Argentina y Brasil", "Racing e Independiente", "Boca Juniors y River Plate", "San Lorenzo y Huracán"],
+        correctAnswerIndex: 2
+      },
+      {
+        questionText: "En la familia de Lucas, ¿quién es de River y quién de Boca?",
+        options: ["Ambos son de Boca", "El papá es de River y la mamá de Boca", "Ambos son de River", "El papá es de Boca y la mamá de River"],
+        correctAnswerIndex: 1
+      },
+      {
+        questionText: "¿Qué aprende Lucas de sus padres durante el Superclásico?",
+        options: ["Que hay que pelearse por el fútbol", "Que solo importa ganar", "Que el amor y el respeto son más importantes que la rivalidad", "Que el fútbol no es importante"],
+        correctAnswerIndex: 2
+      }
+    ]
+  },
+  {
+    title: "La Cueva de las Manos",
+    level: QuestLevel.BEGINNER,
+    passage: "Hace miles de años, en la Patagonia, un grupo de personas encontró una cueva para protegerse del viento. No tenían papel ni lápices para dibujar, pero querían dejar su marca. Así que usaron sus propias manos. Apoyaban una mano en la pared de la cueva y, con un hueso hueco, soplaban pintura hecha con minerales de colores a su alrededor. Hoy, la Cueva de las Manos tiene cientos de manos pintadas, la mayoría izquierdas. Son como un antiguo 'hola', un mensaje que viaja por el tiempo para decirnos: 'Nosotros estuvimos aquí'. Un joven arqueólogo, al verlas, no vio solo manos, sino las historias silenciosas de los primeros habitantes de esas tierras.",
+    vocabulary: [
+      { word: "Cueva", definition: "Una cavidad natural en el terreno." },
+      { word: "Arqueólogo", definition: "Un científico que estudia las sociedades antiguas a través de sus restos materiales." },
+      { word: "Pintura rupestre", definition: "Dibujos y pinturas prehistóricas hechas sobre rocas o en cuevas." }
+    ],
+    comprehensionQuestions: [
+      {
+        questionText: "¿Qué usaron las personas antiguas para crear el arte en la cueva?",
+        options: ["Pinceles de pelo de animal", "Sus propias manos y pintura soplada", "Carbón de fogatas", "Trozos de arcilla afilados"],
+        correctAnswerIndex: 1
+      },
+      {
+        questionText: "¿Qué es lo más común que se ve pintado en la Cueva de las Manos?",
+        options: ["Animales de caza", "Soles y lunas", "Cientos de manos", "Figuras de personas bailando"],
+        correctAnswerIndex: 2
+      },
+      {
+        questionText: "¿Qué mensaje nos dejan estas manos pintadas?",
+        options: ["Un mapa del tesoro", "Una lista de reglas", "Un saludo a través del tiempo, diciendo 'estuvimos aquí'", "Instrucciones para cazar"],
+        correctAnswerIndex: 2
+      }
+    ]
+  },
+  {
+    title: "El Hornero, un Arquitecto con Plumas",
+    level: QuestLevel.BEGINNER,
+    passage: "En los campos de Argentina, se puede ver un nido muy especial, hecho de barro y con forma de horno. Es la casa del hornero, un pájaro trabajador y muy inteligente. El hornero y su pareja trabajan juntos, trayendo bolitas de barro y paja para construir su hogar. El nido es tan fuerte que protege a sus pichones del sol, la lluvia y el viento. La leyenda guaraní dice que un joven y una joven enamorados fueron transformados en estos pájaros por un dios que admiraba su amor y dedicación. Por eso, ver un nido de hornero cerca de casa se considera un símbolo de buena suerte y de un hogar feliz.",
+    vocabulary: [
+      { word: "Hornero", definition: "Pájaro de color marrón, famoso por construir nidos de barro con forma de horno. Es el ave nacional de Argentina." },
+      { word: "Nido", definition: "Lugar que construyen las aves para poner sus huevos y criar a sus pichones." },
+      { word: "Pichón", definition: "Cría de un pájaro." }
+    ],
+    comprehensionQuestions: [
+      {
+        questionText: "¿De qué está hecho el nido del hornero?",
+        options: ["De ramas y hojas", "De lana y algodón", "De barro y paja", "De piedras pequeñas"],
+        correctAnswerIndex: 2
+      },
+      {
+        questionText: "¿Cómo trabajan los horneros para construir su nido?",
+        options: ["El macho construye solo", "La hembra construye sola", "Trabajan juntos en pareja", "Contratan a otros pájaros"],
+        correctAnswerIndex: 2
+      },
+      {
+        questionText: "¿Qué se considera ver un nido de hornero cerca de casa?",
+        options: ["Una señal de mala suerte", "Un anuncio de lluvia", "Un símbolo de buena suerte y hogar feliz", "Una señal de que el invierno será frío"],
+        correctAnswerIndex: 2
+      }
+    ]
+  },
+  {
+    title: "La Noche de San Juan y las Pruebas de la Suerte",
+    level: QuestLevel.BEGINNER,
+    passage: "En algunas partes de Argentina, la noche más fría del año, el 23 de junio, es también una noche mágica: la Noche de San Juan. Se encienden grandes fogatas para celebrar el solsticio de invierno. Además de la música y la comida, es una noche de 'pruebas' o rituales para adivinar el futuro o tener buena suerte. Una de las pruebas más famosas para los jóvenes es la de la gota de tinta. A medianoche, se deja caer una gota de tinta en un vaso de agua. La forma que toma la tinta, dicen, revela la inicial del futuro amor. Sea verdad o no, es una tradición que llena de misterio y esperanza la noche más larga del invierno.",
+    vocabulary: [
+      { word: "Fogata", definition: "Un fuego grande que se hace al aire libre." },
+      { word: "Solsticio de invierno", definition: "El día más corto del año y la noche más larga, que marca el inicio del invierno." },
+      { word: "Ritual", definition: "Una serie de acciones realizadas de una manera establecida, a menudo como parte de una ceremonia." }
+    ],
+    comprehensionQuestions: [
+      {
+        questionText: "¿Qué se celebra en la Noche de San Juan?",
+        options: ["La llegada del verano", "La cosecha de maíz", "El solsticio de invierno con fogatas", "El año nuevo"],
+        correctAnswerIndex: 2
+      },
+      {
+        questionText: "¿Para qué sirven las 'pruebas' que se hacen esa noche?",
+        options: ["Para ganar premios", "Para asustar a los malos espíritus", "Para adivinar el futuro o tener buena suerte", "Para demostrar valentía"],
+        correctAnswerIndex: 2
+      },
+      {
+        questionText: "¿En qué consiste la prueba de la gota de tinta?",
+        options: ["En escribir un deseo con tinta mágica", "En dejar caer una gota de tinta en agua para ver una inicial", "En pintar un cuadro con tinta", "En beber agua con tinta"],
         correctAnswerIndex: 1
       }
     ]

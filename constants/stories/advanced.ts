@@ -649,4 +649,274 @@ export const ADVANCED_QUESTS: QuestData[] = [
       }
     ]
   },
+    {
+    title: "Jorge Luis Borges y el Universo en la Biblioteca",
+    level: QuestLevel.ADVANCED,
+    passage: "Jorge Luis Borges no escribía novelas, creaba universos. Más que un narrador, fue un cartógrafo de laberintos, un filósofo que usaba la ficción como herramienta. Sus cuentos, a menudo breves y densos, exploran ideas recurrentes: el tiempo cíclico, los espejos que revelan otros mundos, las bibliotecas que contienen todo el saber posible y la identidad como una construcción frágil. No buscaba el realismo, sino explorar las posibilidades de la realidad misma a través de la erudición y la metafísica. Su ceguera progresiva, lejos de ser un límite, pareció agudizar su universo interior, obligándolo a construir y memorizar complejas arquitecturas literarias. Leer a Borges no es seguir una trama, es participar en un juego intelectual que desafía nuestra percepción del mundo y nos deja preguntándonos si no somos más que personajes en el sueño de otro.",
+    vocabulary: [
+      { word: "Laberinto", definition: "Lugar formado artificiosamente por calles y encrucijadas para confundir a quien se adentre en él." },
+      { word: "Erudición", definition: "Conocimiento profundo en un tipo de saber, especialmente el referente a las disciplinas literarias e históricas." },
+      { word: "Metafísica", definition: "Parte de la filosofía que trata del ser, de sus principios, de sus propiedades y de sus causas primeras." }
+    ],
+    comprehensionQuestions: [
+      {
+        questionText: "¿Por qué se dice que leer a Borges es 'participar en un juego intelectual'?",
+        options: ["Porque sus libros incluyen juegos de mesa", "Porque sus historias son cómicas y ligeras", "Porque su obra exige reflexión sobre conceptos filosóficos y la naturaleza de la realidad", "Porque solo los intelectuales pueden entenderlo"],
+        correctAnswerIndex: 2
+      },
+      {
+        questionText: "La relación entre la ceguera de Borges y su obra sugiere que...",
+        options: ["Dejó de escribir cuando se quedó ciego", "Sus limitaciones físicas potenciaron su capacidad de creación imaginativa", "Solo escribió sobre la experiencia de ser ciego", "Su ceguera fue la causa de su pesimismo"],
+        correctAnswerIndex: 1
+      },
+      {
+        questionText: "¿Cuál era el objetivo principal de Borges al escribir?",
+        options: ["Documentar la historia argentina con precisión", "Escribir historias de aventuras con mucha acción", "Usar la ficción como un medio para explorar ideas filosóficas complejas", "Crear personajes realistas y detallados"],
+        correctAnswerIndex: 2
+      }
+    ]
+  },
+  {
+    title: "René Favaloro y la Revolución del Corazón",
+    level: QuestLevel.ADVANCED,
+    passage: "En un mundo donde la medicina se volvía cada vez más un negocio, René Favaloro fue un humanista. Nacido en un barrio humilde de La Plata, ejerció como médico rural durante años, entendiendo que la medicina era un servicio. Su genialidad lo llevó a la Cleveland Clinic en Estados Unidos, donde, en 1967, desarrolló la técnica del bypass coronario, un procedimiento que ha salvado millones de vidas desde entonces. A pesar de la fama y las oportunidades, decidió volver a Argentina para fundar la Fundación Favaloro, un centro de excelencia médica accesible para todos. Luchó incansablemente contra la corrupción y la burocracia del sistema de salud, defendiendo una medicina con rostro humano. Su vida fue un testimonio de que el mayor logro de la ciencia es inútil si no está al servicio de la gente, especialmente de los más vulnerables. Su trágico final fue, en sí mismo, una última y desesperada protesta contra un sistema que había olvidado esa premisa.",
+    vocabulary: [
+      { word: "Humanista", definition: "Persona que busca el desarrollo del ser humano, sus valores y sus derechos." },
+      { word: "Burocracia", definition: "Sistema de organización caracterizado por procedimientos centralizados, división de responsabilidades y especialización laboral." },
+      { word: "Premisa", definition: "Idea o principio del cual se parte para un razonamiento." }
+    ],
+    comprehensionQuestions: [
+      {
+        questionText: "El regreso de Favaloro a la Argentina, a pesar de su éxito en el extranjero, demuestra que...",
+        options: ["No le gustaba vivir en Estados Unidos", "Su principal motivación era aplicar su conocimiento en beneficio de su propio país", "Había ganado suficiente dinero y quería retirarse", "No tenía otras ofertas de trabajo"],
+        correctAnswerIndex: 1
+      },
+      {
+        questionText: "La frase 'una medicina con rostro humano' implica que Favaloro creía que...",
+        options: ["Los médicos debían ser más atractivos", "La atención médica debía ser empática, ética y centrada en el paciente, no solo en la ganancia", "Se debían usar robots en las cirugías", "Los hospitales debían tener más retratos y obras de arte"],
+        correctAnswerIndex: 1
+      },
+      {
+        questionText: "¿Qué nos enseña la vida de Favaloro sobre la ciencia?",
+        options: ["Que el éxito científico conduce inevitablemente a la riqueza personal", "Que los avances científicos son más importantes que los pacientes", "Que la verdadera medida del progreso científico es su impacto positivo en la humanidad", "Que la investigación científica solo es posible con fondos ilimitados"],
+        correctAnswerIndex: 2
+      }
+    ]
+  },
+  {
+    title: "La Difunta Correa: La Fe que Brota del Desierto",
+    level: QuestLevel.ADVANCED,
+    passage: "La historia de Deolinda Correa no está en los libros de historia, sino en el corazón del pueblo. Es una de las figuras de devoción popular más importantes de Argentina. La leyenda cuenta que, a mediados del siglo XIX, Deolinda siguió a su marido, que había sido reclutado a la fuerza, a través del desierto de San Juan. Llevaba a su bebé en brazos. El calor y la sed la vencieron, y murió. Cuando unos arrieros encontraron su cuerpo, el bebé seguía vivo, amamantando de su pecho milagrosamente. Desde entonces, su tumba se convirtió en un santuario. Los viajeros y camioneros le dejan botellas de agua para 'calmar su sed eterna' a cambio de protección. La Difunta Correa no es una santa reconocida por la Iglesia, pero su historia de amor maternal y sacrificio representa un poderoso símbolo de esperanza y fe popular que florece en los lugares más áridos.",
+    vocabulary: [
+      { word: "Devoción", definition: "Veneración y fervor religioso; admiración y respeto profundos." },
+      { word: "Arriero", definition: "Persona que se dedica al transporte de mercancías por medio de animales de carga, como mulas o caballos." },
+      { word: "Santuario", definition: "Lugar al que peregrinan numerosos fieles de un santo o una virgen." }
+    ],
+    comprehensionQuestions: [
+      {
+        questionText: "Dejar botellas de agua en el santuario es un acto que...",
+        options: ["Busca solucionar la sequía de la región", "Simboliza un intercambio recíproco de cuidado y protección entre el devoto y la Difunta", "Es una ordenanza municipal para los turistas", "Es una forma de regar las plantas del lugar"],
+        correctAnswerIndex: 1
+      },
+      {
+        questionText: "El hecho de que la Difunta Correa no sea una santa oficial de la Iglesia sugiere que...",
+        options: ["Su leyenda es falsa", "La fe popular a menudo opera independientemente de las instituciones religiosas formales", "El gobierno prohíbe su culto", "Nadie cree realmente en ella"],
+        correctAnswerIndex: 1
+      },
+      {
+        questionText: "El milagro central de la historia, el bebé sobreviviendo, refuerza la idea de que la Difunta Correa es un símbolo de...",
+        options: ["La crueldad del desierto", "La negligencia de su marido", "El amor maternal que trasciende incluso a la muerte", "La importancia de la hidratación"],
+        correctAnswerIndex: 2
+      }
+    ]
+  },
+  {
+    title: "Carlos Gardel: La Voz Eterna del Tango",
+    level: QuestLevel.ADVANCED,
+    passage: "Para el mundo, Carlos Gardel es la voz del tango. Su figura trasciende la de un simple cantante; es un mito fundador de la identidad argentina. Con su sonrisa carismática y su talento inigualable, transformó el tango-canción, llevándolo de los suburbios de Buenos Aires a los escenarios de París y Nueva York. No solo cantaba, interpretaba. Cada tango era una pequeña obra de teatro de tres minutos sobre el amor, la traición y la nostalgia. Su trágica y prematura muerte en un accidente de avión en Medellín en 1935 no hizo más que agigantar su leyenda. La gente se negaba a creer que había muerto. La frase 'Gardel cada día canta mejor' no es solo un dicho popular; es la afirmación de que su arte es inmortal, que su voz sigue resonando en las calles de Buenos Aires, un eco perfecto del alma porteña que él ayudó a definir.",
+    vocabulary: [
+      { word: "Mito", definition: "Persona o cosa a la que se atribuyen cualidades o excelencias que no tiene, o bien una realidad de la que carece." },
+      { word: "Carismático", definition: "Que tiene la capacidad de atraer y fascinar a los demás." },
+      { word: "Nostalgia", definition: "Sentimiento de pena por la lejanía, la ausencia, la privación o la pérdida de alguien o algo querido." }
+    ],
+    comprehensionQuestions: [
+      {
+        questionText: "La frase 'Gardel cada día canta mejor' implica que...",
+        options: ["Se descubren nuevas grabaciones de mejor calidad", "Su música ha sido remasterizada digitalmente", "El paso del tiempo no disminuye, sino que aumenta el valor y la apreciación de su arte", "Los cantantes actuales no son tan buenos como él"],
+        correctAnswerIndex: 2
+      },
+      {
+        questionText: "Decir que Gardel 'interpretaba' en lugar de solo 'cantar' sugiere que...",
+        options: ["Actuaba en obras de teatro además de cantar", "Su habilidad principal era la actuación, no el canto", "Transmitía las emociones y la historia de la letra con una profunda carga dramática", "Mentía en las letras de sus canciones"],
+        correctAnswerIndex: 2
+      },
+      {
+        questionText: "¿Cuál fue el efecto de la muerte de Gardel en su legado?",
+        options: ["Hizo que fuera rápidamente olvidado", "Interrumpió su carrera antes de que pudiera ser famoso", "Solidificó su estatus de ícono y lo convirtió en una figura legendaria e inmortal", "Demostró que viajar en avión era peligroso"],
+        correctAnswerIndex: 2
+      }
+    ]
+  },
+  {
+    title: "El Asado: Más que Comida, un Ritual",
+    level: QuestLevel.ADVANCED,
+    passage: "El asado en Argentina es mucho más que una simple barbacoa; es una institución social, un rito que fortalece lazos. No se trata solo de la comida, sino del tiempo compartido. El proceso es deliberadamente lento, un pretexto para el encuentro. Comienza con la 'picada' y el vermut, mientras el 'asador', una figura de honor y responsabilidad, controla el fuego y los tiempos de cocción con paciencia experta. El asado no tiene prisa. Es un evento que puede durar horas, donde la conversación fluye y las amistades se consolidan. Termina con la 'sobremesa', ese momento sagrado después de comer donde la charla se extiende, a veces por más tiempo que la comida misma. En un mundo acelerado, el asado es un acto de resistencia, un recordatorio de que los mejores momentos de la vida se cocinan a fuego lento, en compañía de los afectos.",
+    vocabulary: [
+      { word: "Rito", definition: "Costumbre o ceremonia que se repite siempre de la misma forma." },
+      { word: "Anfitrión", definition: "Persona que tiene invitados a su mesa o a su casa." },
+      { word: "Sobremesa", definition: "Tiempo que se está a la mesa después de haber comido." }
+    ],
+    comprehensionQuestions: [
+      {
+        questionText: "Según el texto, ¿cuál es el propósito principal del asado?",
+        options: ["Comer la mayor cantidad de carne posible", "Demostrar quién es el mejor cocinero", "Crear un espacio para la conexión social y el fortalecimiento de relaciones", "Comer de la forma más rápida y eficiente"],
+        correctAnswerIndex: 2
+      },
+      {
+        questionText: "La descripción del asado como un 'acto de resistencia' en un 'mundo acelerado' sugiere que...",
+        options: ["El asado es una forma de protesta política", "Valora la calma, la paciencia y la interacción humana por sobre la prisa y la eficiencia moderna", "Es una práctica anticuada que se resiste a desaparecer", "Hacer un asado es una tarea muy difícil"],
+        correctAnswerIndex: 1
+      },
+      {
+        questionText: "El rol del 'asador' como una 'figura de honor' implica que...",
+        options: ["Cualquier persona puede hacerlo sin problema", "Es una tarea que se toma con seriedad y es fundamental para el éxito del evento social", "El asador es el único que puede hablar durante la comida", "Se le debe pagar al asador por su trabajo"],
+        correctAnswerIndex: 1
+      }
+    ]
+  },
+  {
+    title: "El Tren a las Nubes: Una Proeza de Hierro en el Cielo",
+    level: QuestLevel.ADVANCED,
+    passage: "El 'Tren a las Nubes' no es un simple viaje en tren, es una experiencia que desafía la gravedad y la lógica. Concebido como un ramal ferroviario para conectar la Puna con el puerto de Rosario, atravesando la Cordillera de los Andes, fue una de las obras de ingeniería más audaces del siglo XX. El ingeniero Richard Maury diseñó un sistema que no utiliza cremalleras ni funiculares para ascender; el tren sube serpenteando, en zigzags y espirales, aferrándose a la montaña. El viaje atraviesa puentes vertiginosos y viaductos que parecen flotar en el aire, como el famoso Viaducto La Polvorilla, que se eleva a 4.200 metros sobre el nivel del mar. Hoy, su función es turística, pero su esencia permanece. Es un monumento al ingenio humano, a la determinación de conectar lo que parecía inconectable y un recordatorio de que, a veces, para avanzar, no hay que ir en línea recta.",
+    vocabulary: [
+      { word: "Proeza", definition: "Hazaña, valentía o acción valerosa." },
+      { word: "Vertiginoso", definition: "Que produce vértigo o un mareo intenso." },
+      { word: "Viaducto", definition: "Puente muy largo, levantado para que un camino o vía férrea pase por una hondonada o un valle." }
+    ],
+    comprehensionQuestions: [
+      {
+        questionText: "La frase 'para avanzar, no hay que ir en línea recta' en el contexto del tren, se refiere a que...",
+        options: ["El tren a menudo se descarrilaba", "El ingenioso diseño en zigzag fue la solución para superar el desafío de la altura", "El viaje es muy confuso para los pasajeros", "El objetivo original del tren nunca se cumplió"],
+        correctAnswerIndex: 1
+      },
+      {
+        questionText: "El hecho de que el tren no use cremalleras para ascender demuestra...",
+        options: ["Que el tren es anticuado y poco seguro", "Una solución de ingeniería excepcionalmente creativa y adaptada al terreno", "Que el terreno no es tan empinado como parece", "Un error de diseño que fue corregido más tarde"],
+        correctAnswerIndex: 1
+      },
+      {
+        questionText: "¿Qué representa el Tren a las Nubes más allá de ser una atracción turística?",
+        options: ["Un medio de transporte de mercancías vital para la economía actual", "Un recordatorio de un fracaso de la ingeniería", "Un símbolo de la ambición humana y la capacidad de superar obstáculos geográficos monumentales", "La forma más rápida de cruzar los Andes"],
+        correctAnswerIndex: 2
+      }
+    ]
+  },
+  {
+    title: "Mercedes Sosa: La Voz de América Latina",
+    level: QuestLevel.ADVANCED,
+    passage: "Cuando Mercedes Sosa cantaba, no era solo su voz la que se escuchaba; eran las voces de los campesinos, los mineros, los olvidados. 'La Negra', como se la conocía cariñosamente, fue mucho más que una cantante de folclore. Fue una intérprete que le dio voz a un continente entero. Su repertorio trascendió géneros y fronteras, incorporando canciones de poetas y compositores de toda América Latina. Durante los años de dictadura, su música se convirtió en un himno de resistencia y esperanza, lo que le costó el exilio. Sin embargo, ni la censura ni la distancia pudieron apagar su voz. Regresó a Argentina con la democracia, llenando estadios y demostrando que la cultura es un pilar fundamental de la identidad de un pueblo. Su legado es el de una artista que entendió que una canción podía ser tan poderosa como un arma, pero usada para construir puentes y celebrar la vida.",
+    vocabulary: [
+      { word: "Folclore", definition: "Conjunto de costumbres, creencias, artesanías y canciones de carácter tradicional y popular." },
+      { word: "Repertorio", definition: "Conjunto de obras que una compañía, orquesta o un intérprete tienen estudiadas para ejecutarlas." },
+      { word: "Exilio", definition: "Pena que consiste en expulsar o hacer salir a una persona de un país o de un territorio." }
+    ],
+    comprehensionQuestions: [
+      {
+        questionText: "La frase 'le dio voz a un continente entero' significa que Mercedes Sosa...",
+        options: ["Cantaba en todos los idiomas del continente", "A través de su selección de canciones, representaba las luchas y esperanzas de la gente común de Latinoamérica", "Fue la única cantante famosa de América Latina", "Realizó giras por todos los países del continente"],
+        correctAnswerIndex: 1
+      },
+      {
+        questionText: "El exilio de Mercedes Sosa durante la dictadura demuestra que...",
+        options: ["Prefería vivir en Europa", "Su música y sus ideas eran consideradas una amenaza por el régimen autoritario", "Quería tomarse unas vacaciones de su carrera", "El folclore estaba prohibido en Argentina"],
+        correctAnswerIndex: 1
+      },
+      {
+        questionText: "El legado de Mercedes Sosa, según el texto, es el de una artista que...",
+        options: ["Priorizó el éxito comercial por sobre el mensaje", "Creía que el arte no debía mezclarse con la realidad social", "Utilizó su inmenso talento para la unificación cultural y la expresión de la identidad popular", "Cambió su estilo musical para adaptarse a las modas"],
+        correctAnswerIndex: 2
+      }
+    ]
+  },
+  {
+    title: "El Gaucho: De Marginado a Símbolo Nacional",
+    level: QuestLevel.ADVANCED,
+    passage: "La figura del gaucho ha sufrido una profunda transformación en la historia argentina. En sus orígenes, en los siglos XVIII y XIX, el gaucho era un personaje errante y a menudo marginado. Era un hombre mestizo, de espíritu libre, jinete experto y habitante de las vastas llanuras de la pampa, que vivía de la caza del ganado salvaje y a menudo al margen de la ley. La literatura, especialmente el poema épico 'Martín Fierro' de José Hernández, fue crucial para cambiar esta percepción. La obra lo retrató no como un delincuente, sino como una víctima de la injusticia social y como la encarnación de los valores más puros de la argentinidad: la valentía, la lealtad y el amor por la libertad. Así, el gaucho pasó de ser un problema social a convertirse en el arquetipo del ser nacional, un símbolo romántico de la conexión del hombre con la tierra y la independencia.",
+    vocabulary: [
+      { word: "Errante", definition: "Que anda de un lugar a otro sin tener un lugar o asiento fijo." },
+      { word: "Marginado", definition: "Que está socialmente aislado o en situación de inferioridad." },
+      { word: "Arquetipo", definition: "Modelo original y primario en un arte u otra cosa; el ejemplo más representativo." }
+    ],
+    comprehensionQuestions: [
+      {
+        questionText: "El rol del poema 'Martín Fierro' en la historia del gaucho fue...",
+        options: ["Documentar sus crímenes para justificar su persecución", "Glorificar su figura y redefinirlo como un héroe popular y símbolo de la identidad nacional", "Una biografía precisa de un gaucho real llamado Martín Fierro", "Proponer un plan para integrar a los gauchos en las ciudades"],
+        correctAnswerIndex: 1
+      },
+      {
+        questionText: "La transformación del gaucho de 'marginado a símbolo' demuestra que...",
+        options: ["La percepción de un grupo social puede cambiar drásticamente gracias a la influencia cultural y literaria", "Los gauchos se volvieron ricos y poderosos de la noche a la mañana", "Todos los argentinos se convirtieron en gauchos", "La vida en el campo no ha cambiado desde el siglo XIX"],
+        correctAnswerIndex: 0
+      },
+      {
+        questionText: "¿Qué representa el gaucho en la cultura argentina moderna?",
+        options: ["Un recordatorio de un pasado violento que es mejor olvidar", "Una figura que representa los valores de la vida urbana y la tecnología", "Un ideal romántico de libertad, independencia y conexión con la tierra", "Un tipo de trabajador rural que ya no existe"],
+        correctAnswerIndex: 2
+      }
+    ]
+  },
+  {
+    title: "El Aconcagua: El Centinela de Piedra",
+    level: QuestLevel.ADVANCED,
+    passage: "Con 6,962 metros, el Aconcagua no es solo una montaña; es el techo de las Américas, un gigante que desafía a los alpinistas de todo el mundo. Su nombre, que en lenguas originarias podría significar 'Centinela de Piedra', describe perfectamente su imponente presencia. A pesar de no ser técnicamente tan complejo como otros picos del Himalaya, su peligrosidad reside en otros factores: los vientos huracanados que pueden surgir de la nada y el frío extremo, consecuencias de su proximidad al océano Pacífico. La ruta normal es un desafío más de resistencia y aclimatación que de escalada técnica. Muchos han intentado conquistar su cumbre, y el 'cementerio de los andinistas' cerca de su base es un sombrío recordatorio de que la montaña siempre tiene la última palabra. Para quienes lo logran, alcanzar la cima no es una conquista de la montaña, sino una conquista de sus propios límites, una lección de humildad y perseverancia escrita en el cielo.",
+    vocabulary: [
+      { word: "Centinela", definition: "Soldado que vela o guarda un puesto; por extensión, algo que vigila." },
+      { word: "Aclimatación", definition: "Proceso por el cual un organismo se adapta fisiológicamente a los cambios en su medio ambiente, como la altitud." },
+      { word: "Perseverancia", definition: "Firmeza y constancia en la manera de ser o de obrar." }
+    ],
+    comprehensionQuestions: [
+      {
+        questionText: "La frase 'la montaña siempre tiene la última palabra' significa que...",
+        options: ["La montaña puede hablar con los alpinistas", "A pesar de la preparación y la habilidad humana, las fuerzas impredecibles de la naturaleza son soberanas", "Es imposible llegar a la cumbre del Aconcagua", "Hay que pedirle permiso a la montaña antes de escalar"],
+        correctAnswerIndex: 1
+      },
+      {
+        questionText: "El principal desafío para escalar el Aconcagua, según el texto, no es la dificultad técnica sino...",
+        options: ["La falta de guías experimentados", "La presencia de animales peligrosos", "La resistencia física a la altura y las condiciones climáticas extremas e impredecibles", "La burocracia para obtener los permisos de escalada"],
+        correctAnswerIndex: 2
+      },
+      {
+        questionText: "La idea de que llegar a la cima es una 'conquista de los propios límites' sugiere que la experiencia es...",
+        options: ["Principalmente un logro deportivo para presumir", "Una competencia contra otros escaladores", "Un viaje interior de autodescubrimiento y superación personal", "Un fracaso si no se llega a la cumbre"],
+        correctAnswerIndex: 2
+      }
+    ]
+  },
+  {
+    title: "El Sifón Drago: La Chispa de la Mesa Argentina",
+    level: QuestLevel.ADVANCED,
+    passage: "Antes de las botellas de plástico, el agua con gas en Argentina tenía un rey: el sifón de vidrio. Y el rey de los sifones era el 'Drago'. Inventado en 1965 por Enrique e Hijos, solucionó un problema clave: los sifones comunes se recargaban en plantas que no siempre garantizaban la higiene. El Sifón Drago, con su cabezal de plástico a rosca, permitía que cada familia lo recargara en casa con una pequeña garrafa de CO2, garantizando su pureza. Se convirtió en un objeto icónico, presente en millones de hogares. Era más que un utensilio; era el centro de la mesa familiar, el sonido característico del almuerzo del domingo, la chispa que se agregaba al vino tinto para hacer el popular 'vino con soda'. Aunque hoy compite con las botellas descartables, el Sifón Drago sobrevive como un objeto de culto, un testimonio del ingenio argentino y de una época donde las cosas se hacían para durar.",
+    vocabulary: [
+      { word: "Icónico", definition: "Que es un símbolo o una representación muy conocida de algo." },
+      { word: "Utensilio", definition: "Objeto fabricado que se destina a un uso manual y doméstico." },
+      { word: "Culto", definition: "Admiración o veneración de la que es objeto una persona o una cosa." }
+    ],
+    comprehensionQuestions: [
+      {
+        questionText: "¿Cuál fue la principal innovación del Sifón Drago que lo hizo tan exitoso?",
+        options: ["Ser el primer sifón de vidrio del mundo", "Su diseño colorido y atractivo", "Permitir una recarga casera, higiénica y segura", "Ser mucho más barato que el agua embotellada"],
+        correctAnswerIndex: 2
+      },
+      {
+        questionText: "La descripción del sifón como 'el sonido característico del almuerzo del domingo' sugiere que...",
+        options: ["Hacía mucho ruido y era molesto", "Estaba profundamente integrado en los rituales y la vida cotidiana de las familias argentinas", "Solo se podía usar los domingos", "Era un producto de lujo que pocas familias tenían"],
+        correctAnswerIndex: 1
+      },
+      {
+        questionText: "Comparar el Sifón Drago con las botellas descartables modernas resalta que el sifón representa...",
+        options: ["Una tecnología obsoleta y poco práctica", "Una cultura de reutilización y durabilidad en contraste con la cultura de 'usar y tirar'", "Un peligro para la seguridad del hogar", "La única forma de beber agua con gas"],
+        correctAnswerIndex: 1
+      }
+    ]
+  }
 ];
