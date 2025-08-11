@@ -1,14 +1,18 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { GameState, QuestData, PlayerStats } from './types';
+import { GameState, QuestData, PlayerStats, QuestLevel } from './types';
 import StartScreen from './components/StartScreen';
 import ReadingStage from './components/ReadingStage';
 import ComprehensionStage from './components/ComprehensionStage';
 import VocabularyStage from './components/VocabularyStage';
 import ResultsScreen from './components/ResultsScreen';
+import SpecialLevel from './components/SpecialLevel';
+import ReconstructionStage from './components/ReconstructionStage';
 import { ICONS } from './constants';
 import { BEGINNER_QUESTS } from './constants/stories/beginner';
 import { INTERMEDIATE_QUESTS } from './constants/stories/intermediate';
 import { ADVANCED_QUESTS } from './constants/stories/advanced';
+import { sapoQuest } from './constants/stories/sapo';
+import { enriqueQuest } from './constants/stories/enrique';
 import HomeButton from './components/HomeButton';
 import SettingsPanel from './components/SettingsPanel';
 
@@ -34,6 +38,7 @@ const App: React.FC = () => {
   const [readingStartTime, setReadingStartTime] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [difficulty, setDifficulty] = useState(1);
+  const [currentSpecialStory, setCurrentSpecialStory] = useState<QuestData | null>(null);
   
   const [perfectScoresL1, setPerfectScoresL1] = useState(0);
 
@@ -68,6 +73,31 @@ const App: React.FC = () => {
 
 
 const startNewQuest = useCallback((level: number, storyIndex?: number) => {
+  // Handle special level (4) with multiple stories
+  if (level === 4) {
+    let selectedStory: QuestData;
+    
+    if (typeof storyIndex === 'number') {
+      // Direct story selection
+      if (storyIndex === 0) {
+        selectedStory = sapoQuest;
+      } else if (storyIndex === 1) {
+        selectedStory = enriqueQuest;
+      } else {
+        // Fallback to first story
+        selectedStory = sapoQuest;
+      }
+    } else {
+      // Random selection between the two special stories
+      selectedStory = Math.random() < 0.5 ? sapoQuest : enriqueQuest;
+    }
+    
+    setCurrentSpecialStory(selectedStory);
+    setPlayerStats(null);
+    setGameState(GameState.SPECIAL_LEVEL);
+    return;
+  }
+
   let quests: QuestData[];
   switch(level) {
       case 1:
@@ -201,7 +231,7 @@ const startNewQuest = useCallback((level: number, storyIndex?: number) => {
       setError(null);
   };
   
-  const showHomeButton = [GameState.READING, GameState.COMPREHENSION, GameState.VOCABULARY].includes(gameState);
+  const showHomeButton = [GameState.READING, GameState.COMPREHENSION, GameState.VOCABULARY, GameState.SPECIAL_LEVEL, GameState.RECONSTRUCTION].includes(gameState);
 
   const renderGameState = () => {
     switch (gameState) {
@@ -215,6 +245,14 @@ const startNewQuest = useCallback((level: number, storyIndex?: number) => {
          return questData && <VocabularyStage vocabulary={questData.vocabulary} onComplete={handleVocabularyComplete} />;
       case GameState.RESULTS:
         return playerStats && <ResultsScreen stats={playerStats} onPlayAgain={handleGoHome} unlockedLevel2={justUnlockedL2} />;
+      case GameState.SPECIAL_LEVEL:
+        return currentSpecialStory && <SpecialLevel 
+          story={currentSpecialStory}
+          onComplete={handleGoHome} 
+          onStartReconstruction={() => setGameState(GameState.RECONSTRUCTION)} 
+        />;
+      case GameState.RECONSTRUCTION:
+        return currentSpecialStory && <ReconstructionStage story={currentSpecialStory} onComplete={handleGoHome} />;
       case GameState.ERROR:
         return (
           <div className="text-center p-8 bg-red-100 border-2 border-red-500 rounded-lg dark:bg-red-900/50 dark:border-red-600">

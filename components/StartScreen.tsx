@@ -5,6 +5,8 @@ import { ICONS } from '../constants';
 import { BEGINNER_QUESTS } from '../constants/stories/beginner';
 import { INTERMEDIATE_QUESTS } from '../constants/stories/intermediate';
 import { ADVANCED_QUESTS } from '../constants/stories/advanced';
+import { sapoQuest } from '../constants/stories/sapo';
+import { enriqueQuest } from '../constants/stories/enrique';
 import HomeButton from './HomeButton';
 
 interface StartScreenProps {
@@ -35,6 +37,13 @@ const LEVELS = [
     subtitle: 'Maestría en Comprensión',
     quests: ADVANCED_QUESTS,
   },
+  {
+    num: 4,
+    name: 'Nivel Especial',
+    color: 'rose',
+    subtitle: 'Historias Clásicas',
+    quests: [sapoQuest, enriqueQuest],
+  },
 ];
 
 const StartScreen: React.FC<StartScreenProps> = ({ onStart, completedStories }) => {
@@ -51,13 +60,15 @@ const StartScreen: React.FC<StartScreenProps> = ({ onStart, completedStories }) 
         <h2 className={`text-3xl font-bold mb-2 text-${levelObj.color}-700 dark:text-${levelObj.color}-300`}>{levelObj.name}</h2>
         <p className="mb-6 text-lg text-stone-600 dark:text-stone-300">{levelObj.subtitle}</p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-4xl">
-          <div
-            className={`flex flex-col items-center justify-center border-2 border-dashed border-${levelObj.color}-400 rounded-lg p-6 cursor-pointer hover:bg-${levelObj.color}-50 dark:hover:bg-${levelObj.color}-900 transition mb-4`}
-            onClick={() => onStart(levelObj.num)}
-          >
-            <span className={`text-${levelObj.color}-500 dark:text-${levelObj.color}-300 text-2xl mb-2 font-bold`}>Aleatorio / Siguiente</span>
-            <span className="text-sm text-gray-500">Dejá que el juego elija la historia por vos</span>
-          </div>
+          {levelObj.num !== 4 && (
+            <div
+              className={`flex flex-col items-center justify-center border-2 border-dashed border-${levelObj.color}-400 rounded-lg p-6 cursor-pointer hover:bg-${levelObj.color}-50 dark:hover:bg-${levelObj.color}-900 transition mb-4`}
+              onClick={() => onStart(levelObj.num)}
+            >
+              <span className={`text-${levelObj.color}-500 dark:text-${levelObj.color}-300 text-2xl mb-2 font-bold`}>Aleatorio / Siguiente</span>
+              <span className="text-sm text-gray-500">Dejá que el juego elija la historia por vos</span>
+            </div>
+          )}
           {levelObj.quests.map((q, idx) => {
             const isCompleted = completed.includes(idx);
             return (
@@ -66,12 +77,12 @@ const StartScreen: React.FC<StartScreenProps> = ({ onStart, completedStories }) 
                 className={`flex flex-col items-center border-2 border-${levelObj.color}-400 rounded-lg p-6 cursor-pointer hover:bg-${levelObj.color}-100 dark:hover:bg-${levelObj.color}-900 transition relative ${isCompleted ? 'bg-yellow-50 dark:bg-yellow-900/30 border-yellow-400 dark:border-yellow-500 shadow-gold' : ''}`}
                 onClick={() => onStart(levelObj.num, idx)}
               >
-                <span className={`text-${levelObj.color}-700 dark:text-${levelObj.color}-200 text-lg font-bold mb-2 flex items-center gap-2`}>
+                <span className={`text-${levelObj.color}-700 dark:text-${levelObj.color}-200 text-xl font-bold mb-2 flex items-center gap-2`}>
                   {q.title}
                   {isCompleted && <span title="Completado" className="ml-1">✨</span>}
                 </span>
                 <span className="text-xs text-gray-500 mb-2">Historia #{idx + 1}</span>
-                <span className="text-sm text-stone-700 dark:text-stone-200 line-clamp-3">{q.passage.slice(0, 120)}...</span>
+                <span className="text-sm text-stone-700 dark:text-stone-200 line-clamp-3">{q.passage.trim().slice(0, 120)}...</span>
                 {isCompleted && <div className="absolute top-2 right-2 text-yellow-400 text-xl" title="Completado">★</div>}
               </div>
             );
@@ -90,7 +101,7 @@ const StartScreen: React.FC<StartScreenProps> = ({ onStart, completedStories }) 
       </p>
       <div className="w-full max-w-2xl">
         <h2 className="text-2xl font-bold text-stone-700 dark:text-stone-200 mb-4">Seleccioná tu nivel</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {LEVELS.map(level => (
             <button
               key={level.num}
