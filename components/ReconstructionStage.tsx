@@ -16,6 +16,15 @@ const ReconstructionStage: React.FC<ReconstructionStageProps> = ({ story, onComp
   const [selectedParts, setSelectedParts] = useState<{[key: string]: string}>({});
   const [isCompleted, setIsCompleted] = useState(false);
 
+  const [shuffledScenes] = useState(() => {
+    const scenes = [...story.reconstruction!.scenes];
+    for (let i = scenes.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [scenes[i], scenes[j]] = [scenes[j], scenes[i]];
+    }
+    return scenes;
+  });
+
   const reconstruction = story.reconstruction!;
 
   // Scene ordering functionality
@@ -156,7 +165,7 @@ const ReconstructionStage: React.FC<ReconstructionStageProps> = ({ story, onComp
             
             {/* Available scenes */}
             <div className="grid grid-cols-2 gap-3 mb-6">
-              {reconstruction.scenes
+              {shuffledScenes
                 .filter(scene => !sceneOrder.includes(scene.id))
                 .map(scene => (
                 <div
